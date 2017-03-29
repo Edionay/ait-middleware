@@ -1,7 +1,7 @@
 {
-  "name": "things-api-server",
+  "name": "oauth-server",
   "version": "0.0.0",
-  "description": "",
+  "description": "OAuth server based on Stormpath service",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
