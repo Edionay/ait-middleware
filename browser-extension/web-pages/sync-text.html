@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Sync Text Editor</title> 
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <textarea id="textarea" rows="10" cols="50"></textarea>
+        <br>
+        Current work file:
+        <br>
+        <input type="file" id="currentFile" onchange="openFile(event)">
+        <br>
+        <input type="button" id="saveButton" onclick="saveFile()" value="Save file">
+
+        <script type="text/javascript">
+        function openFile(event) {
+            var file = event.target.files[0];
+
+            var reader = new FileReader();
+            reader.onload = function() {
+                var data = reader.result;
+                console.log("Loaded " + data.length + " bytes");
+                document.getElementById("textarea").value = data;
+            };
+            reader.readAsBinaryString(file);
+        }
+        
+        function saveFile() {
+        	var textArea = document.getElementById("textarea");
+            var a = document.createElement("a");
+            var file = new Blob([textArea.value], {type: 'application/octet-binary'});
+            
+            if (window.webkitURL != null)
+        	{
+                // Google Chrome.
+        		a.href = window.webkitURL.createObjectURL(textFileAsBlob);
+        	}
+        	else
+        	{
+        		// Mozilla Firefox.
+        		a.href = window.URL.createObjectURL(file);
+        		a.onclick = function(event){
+                    document.body.removeChild(event.target);
+                };
+        		a.style.display = "none";
+        		document.body.appendChild(a);
+        	}
+
+            a.download = "sync-text-save.txt";
+            a.click();
+        }
+        </script>
+
+    </body>
+
+</html>

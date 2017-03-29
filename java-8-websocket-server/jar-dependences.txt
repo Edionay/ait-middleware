@@ -1,0 +1,10 @@
+jetty-io
+jetty-util
+jetty-websocket-api
+jetty-websocket-client
+jetty-websocekt-common
+jetty-server
+jetty-http
+websocket-server
+websocket-servlet
+javax.servlet-api

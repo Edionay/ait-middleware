@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Video Test</title> 
+        <meta charset="utf-8">
+    </head>
+    <body>
+
+        <button onclick="getCurTime()" type="button">Get current time position</button>
+        <button onclick="setCurTime()" type="button">Set time position to 5 seconds</button>
+        <br>
+
+        <video id="myVideo" width="360" height="240" controls>
+          <source src="SampleVideo_360x240_1mb.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+
+        <script>
+            var vid = document.getElementById("myVideo");
+
+            function getCurTime() {
+                alert(vid.currentTime);
+            }
+
+            function setCurTime() {
+                vid.currentTime=5;
+            }
+        </script>
+    
+    </body>
+</html>

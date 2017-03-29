@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Handoff preferences</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+        <script src= "preferencesModule.js"></script>
+    </head>
+    
+    <body ng-app="myApp" ng-controller="userCtrl">
+
+        <div class="w3-container w3-responsive">
+
+            <h3>Devices</h3>
+            <!-- Button for routing user to the device register page. -->
+            <a class="w3-btn w3-blue w3-ripple w3-right" href="devices.html">&#10132; Devices entries</a>
+
+            <!-- Display registered device entries. -->
+            <table class="w3-table w3-bordered w3-striped" style="overflow-x:auto;">
+                <tr>
+                    <th>ID</th>
+                    <th>Type</th>
+                    <th>Screen size (px)</th>
+                    <th>Battery</th>
+                    <th>Keyboard</th>
+                    <th>Location</th>
+                </tr>
+                <tr ng-repeat="device in devices">
+                    <td>{{ device.id }}</td>
+                    <td>{{ devicesType[device.type] }}</td>
+                    <td>{{ device.width }} x {{ device.height }}</td>
+                    <td ng-show="{{ device.battery }}" class="w3-text-green">&#10004;</td>
+                    <td ng-hide="{{ device.battery }}" class="w3-text-red">&#10006;</td>
+                    <td ng-show="{{ device.keyboard }}" class="w3-text-green">&#10004;</td>
+                    <td ng-hide="{{ device.keyboard }}" class="w3-text-red">&#10006;</td>
+                    <td>{{ locations[device.location] }}</td>
+                </tr>
+            </table>
+
+            <h3>User Preferences</h3>
+
+            <!-- Display registered user's preferences entries. -->
+            <table class="w3-table w3-bordered w3-striped" style="overflow-x:auto;">
+                <tr>
+                    <th>Action</th>
+                    <th>Applicaton ID</th>
+                    <th>Preference</th>
+                </tr>
+                <tr ng-repeat="entry in prefEntries">
+                    <td>
+                        <button class="w3-btn w3-ripple" ng-click="editPreference(entry.application)">&#9998; Edit</button>
+                        <button class="w3-btn w3-ripple w3-red" onclick="document.getElementById('modalRemove').style.display='block'" ng-click="setModal(entry.application)">&#10005; Remove</button>
+                    </td>
+                    <td>{{ entry.application }}</td>
+                    <td><pre>{{ printPreference(entry.preferences) }}</pre></td>
+                </tr>
+            </table>
+
+            <!-- Modal panel for the button Remove. It is shown when the button is pressed. -->
+            <div id="modalRemove" class="w3-modal">
+                <div class="w3-modal-content w3-card-8">
+                    <header class="w3-container w3-red"> 
+                        <h3>Are you sure you want to remove all entries for the selected application?</h3>
+                    </header>
+                    <div class="w3-container">
+                        <table class="w3-table w3-bordered w3-striped">
+                            <tr>
+                                <th>Applicaton ID</th>
+                            </tr>
+                            <tr>
+                                <td>{{ appID }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <footer class="w3-container w3-red">
+                        <button class="w3-btn w3-ripple w3-red" onclick="document.getElementById('modalRemove').style.display='none'" ng-click="removePreference()">Remove</button>
+                        <button class="w3-btn w3-ripple w3-red" onclick="document.getElementById('modalRemove').style.display='none'">Cancel</button>
+                    </footer>
+                </div>
+            </div>
+
+            <!-- Buttons to register a new preference and to refresh the display of registered preferences, respectively. -->
+            <br>
+            <button class="w3-btn w3-green w3-ripple" ng-click="editPreference('new')">&#10133; Add Preference</button>
+            <br>
+            <p><i class="w3-large w3-text-blue w3-hover-text-black fa fa-refresh" ng-click="getPreferences()"></i></p>
+
+            <!-- Form to add or edit a preference entry. -->
+            <form ng-hide="hideform">
+                <h3 ng-hide="edit">New Preference:</h3>
+                <h3 ng-show="edit">Edit Preference Entry:</h3>
+                <label>Application ID:</label><br>
+                <label><small>(Example: 15 or github.com)</small></label>
+                <input class="w3-input w3-border" type="text" ng-disabled="edit" ng-model="appID">
+                <br>
+                <label>Location:</label>
+                <select class="w3-input w3-border" ng-model="location" ng-options="loc for loc in locations">
+                </select>
+                <br>
+                <label>Device ID:</label><br>
+                <label><small>(the value "-1" means any device ID)</small></label>
+                <input class="w3-input w3-border" type="number" ng-model="deviceID">
+                <br>
+                <label>Device Type:</label>
+                <select class="w3-input w3-border" ng-model="selectedType" ng-options="type for type in devicesType">
+                </select>
+                <br>
+                <label>Width:</label><br>
+                <label><small>("0" for largest available, "-1" for smallest available)</small></label>
+                <input class="w3-input w3-border" type="number" ng-model="width" placeholder="Width">
+                <br>
+                <label>Height:</label><br>
+                <label><small>("0" for largest available, "-1" for smallest available)</small></label>
+                <input class="w3-input w3-border" type="number" ng-model="height" placeholder="Height">
+                <br>
+                <input class="w3-check w3-border" type="checkbox" ng-model="battery">
+                <label>Battery</label>
+                <br>
+                <input class="w3-check w3-border" type="checkbox" ng-model="keyboard">
+                <label>Keyboard</label>
+                <br>
+                <button class="w3-btn w3-green w3-ripple" ng-disabled="error" ng-click="registerPreference()">&#10004; Save Changes</button>
+            </form>
+
+        </div>
+
+    </body>
+</html>
+
