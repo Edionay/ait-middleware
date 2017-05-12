@@ -5,6 +5,8 @@ function startHandoff(userLocation) {
     userLocationRef.set(userLocation);
 }
 
+/*var ipPut = '13.37.0.2:10338';
+var ipGet = null;*/
 var ipPut = 'localhost:10338';
 var ipGet = 'localhost:10338';
 var getDone = true;
@@ -40,6 +42,7 @@ function getSessionState() {
             console.log(data);
 
             getDone = true;
+            curDeviceRef.set({id: deviceID, init: 0}); // Update current device used.
         }
         else {
             var errorMsg = 'Error:\n';
@@ -61,6 +64,7 @@ function putSessionState(data) {
 
     xhttp.onreadystatechange = function() {
         if(xhttp.status == 200) {
+            //var res = JSON.parse(xhttp.response);
             var res = xhttp.response;
             if(res == "" || putDone) {
                 //console.log("res == \"\" or putDone == true");
@@ -102,20 +106,33 @@ var urlIdx = 1;
 
 function sendPageState() {
     var dummyState = [];
-    dummyState.push(urls[urlIdx]);
-    for(var i = 0; i < 9; i++) {
+    dummyState.push(urls[urlIdx++]);
+    dummyState.push(deviceID);
+    for(var i = 0; i < 8; i++) {
         dummyState.push(Math.floor(Math.random() * (101 - 1)) + 1);
     }
     putSessionState(JSON.stringify(dummyState));
 }
 
-setInterval(function() {
-    if(urlIdx == urls.length)
-        urlIdx = 0;
-    
-    setTimeout(function() {
-        startHandoff(locations[locationsIdx++]);
-        if(locationsIdx == locations.length)
-            locationsIdx = 0;
-    }, 10000);
-}, 20000);
+var deviceID = (Math.floor(Math.random() * (10001 - 1)) + 1);
+var currentDevice;
+var targetDevice;
+
+curDeviceRef.set({id: deviceID, init: 1});
+
+setTimeout(function() {
+    if(deviceID != currentDevice.id)
+        trgDeviceRef.set(deviceID);
+
+    setInterval(function() {
+        
+        if(urlIdx == urls.length)
+            urlIdx = 0;
+        
+        setTimeout(function() {
+            startHandoff(locations[locationsIdx++]);
+            if(locationsIdx == locations.length)
+                locationsIdx = 0;
+        }, 10000);
+    }, 20000);
+}, 5000);
