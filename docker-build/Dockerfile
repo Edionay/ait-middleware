@@ -40,7 +40,7 @@ RUN dpkg -i google-chrome-stable_current_amd64.deb && \
 rm -f google-chrome-stable_current_amd64.deb
 
 # Adding needed files.
-ADD ait_cyclon start-processes.c user-behavior.js ait-docker-webpage/ /
+ADD ait_cyclon start-processes.c user-behavior.js browser-extension/ /
 
 # Adding Nodejs script dependency and compiling Standard-C file.
 RUN npm install chrome-remote-interface && gcc start-processes.c -o start-processes
