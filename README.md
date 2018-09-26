@@ -19,8 +19,8 @@ O texto da dissertação pode ser encontrado
 
 ## Navegando pela documentação
 
-Instruções de como instalar e utilizar o AIT Middleware podem ser encontradas
+Instruções de como instalar o AIT Middleware podem ser encontradas
 neste [documento](docs/installation/INSTALLING.md).
 
-Um cenário básico de exemplo do uso do AIT Middleware pode ser conferido no
+Um cenário básico de exemplo de uso do AIT Middleware pode ser conferido no
 seguinte [documento](docs/scenario/BASIC_SCENARIO.md).
