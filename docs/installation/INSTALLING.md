@@ -53,17 +53,17 @@ um pequeno snippet de código de inicialização com alguns detalhes sobre seu
 projeto.
 
 1. Crie um projeto do Firebase no [Console do Firebase](https://console.firebase.google.com/?authuser=0).
-  - Se você não tiver um projeto do Firebase, clique em **Adicionar projeto**
-  e insira um nome de projeto existente do Google Cloud Platform ou um novo nome.
-  - Se você tiver um projeto do Firebase que gostaria de usar, selecione-o no
-  Console do Firebase.
+    - Se você não tiver um projeto do Firebase, clique em **Adicionar projeto**
+    e insira um nome de projeto existente do Google Cloud Platform ou um novo nome.
+    - Se você tiver um projeto do Firebase que gostaria de usar, selecione-o no
+    Console do Firebase.
 2. Na página de visão geral do projeto no [Console do Firebase](https://console.firebase.google.com/?authuser=0),
    clique em **Adicionar o Firebase ao seu aplicativo da Web**. Se o projeto já
    tiver um aplicativo, selecione **Adicionar app** na página de visão geral do
    projeto.
 3. Um snippet de código personalizado do seu projeto deve aparecer na tela.
 
-:star: **Observação**: caso o snippet não apareça na tela ou se precisar
+> :star: **Observação**: caso o snippet não apareça na tela ou se precisar
 recuperar o código de configuração novamente, acesse **Desenvolver** >
 **Autenticação** no [Console do Firebase](https://console.firebase.google.com/?authuser=0)
 e clique em **Configuração da Web**.
