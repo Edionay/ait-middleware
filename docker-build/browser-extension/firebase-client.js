@@ -1,10 +1,11 @@
 // Setting up Firebase client.
 var config = {
-    apiKey: "AIzaSyDEGqW511fi37pici31XMZiYAx-tWCnuGs",
-    authDomain: "fiery-inferno-5459.firebaseapp.com",
-    databaseURL: "https://fiery-inferno-5459.firebaseio.com",
-    storageBucket: "",
-    messagingSenderId: "1019857638564"
+    apiKey: "<API_KEY>",
+    authDomain: "<PROJECT_ID>.firebaseapp.com",
+    databaseURL: "https://<DATABASE_NAME>.firebaseio.com",
+    projectId: "<PROJECT_ID>",
+    storageBucket: "<BUCKET>.appspot.com",
+    messagingSenderId: "<SENDER_ID>",
 };
 firebase.initializeApp(config);
 

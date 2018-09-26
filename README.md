@@ -1,7 +1,7 @@
 # AIT Middleware
 
-O AIT Middleware tem por objetivo dar suporte transparente e automático ao
-processo de *handoff* de aplicações Web.
+O AIT Middleware tem por objetivo prover um grau de transparência e
+automaticidade do processo de *handoff* de aplicações Web.
 
 O AIT Middleware trata em conjunto quatro funcionalidades do *handoff*:
 
