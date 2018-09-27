@@ -42,12 +42,14 @@ do repositório no GitHub e baixe o arquivo compactado e o descompacte.
 
 ## 3. Criando uma conta no Firebase
 O Firebase é um serviço oferecido pela Google. Para criar uma conta no Firebase
-basta ter uma conta do GMail.
+basta ter uma conta do GMail. O Firebase dispõe 1GB gratuítos de armazenamento
+e 10GB/mês para downloads no banco de dados.
 
 Acesse a página do [Firebase](https://firebase.google.com/?hl=pt-br) para
-acessar o painel de controle.
+acessar o painel de controle. Acesse [pricing](https://firebase.google.com/pricing/?authuser=0)
+para conferir os preços e os limites do plano gratuito do Firebase.
 
-### 3.1 - Criando um projeto
+### 3.1 Criando um projeto
 Para adicionar o Firebase ao seu app, são necessários um projeto do Firebase e
 um pequeno snippet de código de inicialização com alguns detalhes sobre seu
 projeto.
@@ -97,13 +99,62 @@ No arquivo *browser-extension/extension-scripts/firebase-client.js*, selecione a
 do projeto (CTRL+V).
 
 ## 4. Cadastro de dispositivos
-TODO
+Na variável *config* do snippet há o atributo
+`databaseURL:"https://<DATABASE_NAME>.firebaseio.com"`.
+Copie o valor que substitue `<DATABASE_NAME>`, ou seja, que está entre as
+duas barras e `.firebaseio.com"`, por exemplo `fiery-inferno-5050`
+
+Abra o arquivo *browser-extension/preferences-page/devicesModule.js* em um editor
+de texto ou de código. Nas linha 8 e 17, substitua `<DATABASE_NAME>` pelo
+valor que copiou no passo imediatamente anterior.
+
+Abra o arquivo *browser-extension/preferences-page/devices.html* em um navegador.
+Para adicionar um dispositivo clique em **Add Device**. Preencha o formulário e
+clique em **Save Changes**. O dispositivo recém cadastrado deve aparecer na tabela
+no topo da página.
+
+Acesse o banco de dados do projeto no [Console do Firebase](https://console.firebase.google.com/?authuser=0)
+para acompanhar as mudanças.
 
 ## 5. Cadastro de preferências
-TODO
+Na variável *config* do snippet há o atributo
+`databaseURL:"https://<DATABASE_NAME>.firebaseio.com"`.
+Copie o valor que substitue `<DATABASE_NAME>`, ou seja, que está entre as
+duas barras e `.firebaseio.com"`, por exemplo `fiery-inferno-5050`
+
+Abra o arquivo *browser-extension/preferences-page/preferencesModule.js* em um editor
+de texto ou de código. Nas linha 9, 18 e 27, substitua `<DATABASE_NAME>` pelo
+valor que copiou no passo imediatamente anterior.
+
+Abra o arquivo *browser-extension/preferences-page/preferences.html* em um navegador.
+Para adicionar uma preferência clique em **Add Preference**. Preencha o formulário e
+clique em **Save Changes**. A preferência recém cadastrada deve aparecer na tabela
+no topo da página.
+
+Acesse o banco de dados do projeto no [Console do Firebase](https://console.firebase.google.com/?authuser=0)
+para acompanhar as mudanças.
+
 
 ## 6. Adicionado a extensão ao navegador
-TODO
+Abra o navegador Mozilla Firefox. No campo onde se digita as URLs para navegação
+digite `about:debugging`. Na página que é apresentada, habilite o debug
+marcando a caixa **Enable add-on debugging**.
 
-## 7. Testando
-TODO
+Clique no botão **Load Temporary Add-on** e escolha o arquivo
+*browser-extension/manifest.json*. A extensão deve ser listada como instalada
+temporariamente e um menu deve ser adicionado a barra de ferramentas.
+
+O ícone do menu é ![popup icon](img/toolbar-icon.png)
+
+> **Nota**: Como a extensão foi adicionada no modo de debugging, ela
+> será deinstalada toda vez que o navegador for fechado. Logo, esse passo para
+> adcionar a extensão ao navegador deve ser realizado todas as vezes que o
+> navegador for aberto.
+
+Mais informações podem ser encontradas no [link](https://developer.mozilla.org/pt-BR/docs/Tools/about:debugging#Enabling_add-on_debugging#Connecting_the_Add-on_Debugger)
+
+
+## 7. Próximos passos
+Faça um teste da extensão para saber se está funcionando. Um exemplo básico de
+teste pode ser conferido no seguinte [documento](../scenario/BASIC_SCENARIO.md).
+

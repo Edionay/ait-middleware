@@ -6,7 +6,7 @@ angular.module('myApp', []).controller('userCtrl', function($scope, $http) {
 
     $scope.getDevices = function() {
         console.log("Getting devices from server...");
-        $http.get('https://fiery-inferno-5459.firebaseio.com/aitmiddleware/browser-extension/devices.json')
+        $http.get('https://<DATABASE_NAME>.firebaseio.com/aitmiddleware/browser-extension/devices.json')
         .then(function (response) {
             if(response.data != null)
                 $scope.devices = response.data;
@@ -15,7 +15,7 @@ angular.module('myApp', []).controller('userCtrl', function($scope, $http) {
 
     $scope.getPreferences = function() {
         console.log("Getting preferences from server...");
-        $http.get('https://fiery-inferno-5459.firebaseio.com/aitmiddleware/browser-extension/preferences.json')
+        $http.get('https://<DATABASE_NAME>.firebaseio.com/aitmiddleware/browser-extension/preferences.json')
         .then(function (response) {
             if(response.data != null)
                 $scope.prefEntries = response.data;
@@ -24,7 +24,7 @@ angular.module('myApp', []).controller('userCtrl', function($scope, $http) {
 
     $scope.setPreferences = function() {
         console.log("Uploading preferences to server...");
-        $http.put('https://fiery-inferno-5459.firebaseio.com/aitmiddleware/browser-extension/preferences.json',
+        $http.put('https://<DATABASE_NAME>.firebaseio.com/aitmiddleware/browser-extension/preferences.json',
                 $scope.prefEntries)
         .then(function(response) {
                 // Success

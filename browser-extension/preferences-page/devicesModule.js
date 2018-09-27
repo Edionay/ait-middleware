@@ -5,7 +5,7 @@ angular.module('myApp', []).controller('userCtrl', function($scope, $http) {
 
     $scope.getDevices = function() {
         console.log("Getting devices from server...");
-        $http.get('https://fiery-inferno-5459.firebaseio.com/aitmiddleware/browser-extension/devices.json')
+        $http.get('https://<DATABASE_NAME>.firebaseio.com/aitmiddleware/browser-extension/devices.json')
         .then(function (response) {
             if(response.data != null)
                 $scope.devices = response.data;
@@ -14,7 +14,7 @@ angular.module('myApp', []).controller('userCtrl', function($scope, $http) {
 
     $scope.setDevices = function() {
         console.log("Uploading devices to server...");
-        $http.put('https://fiery-inferno-5459.firebaseio.com/aitmiddleware/browser-extension/devices.json',
+        $http.put('https://<DATABASE_NAME>.firebaseio.com/aitmiddleware/browser-extension/devices.json',
                 $scope.devices)
         .then(function(response) {
                 // Success
