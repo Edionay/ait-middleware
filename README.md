@@ -11,8 +11,8 @@ O AIT Middleware trata em conjunto quatro funcionalidades do *handoff*:
 4. Os mecanismos de transferência.
 
 AIT Middleware é um dos produtos finais da dissertação de mestrado desenvolvida
-por [Vinícius Bulhões da Silva Lima](mailto:viniciusb50@gmail.com) com a
-orientração do Profº Drº [Fábio Moreira Costa](mailto:fmc@inf.ufg.br).
+por [Vinícius B. S. Lima](mailto:viniciusb50@gmail.com) com a
+orientração do Profº Drº [Fábio M. Costa](mailto:fmc@inf.ufg.br).
 
 O texto da dissertação pode ser encontrado
 [aqui](http://www.inf.ufg.br/mestrado/sites/www.inf.ufg.br.mestrado/files/uploads/Dissertacoes/Vinicius-Lima-Dissertacao.pdf).

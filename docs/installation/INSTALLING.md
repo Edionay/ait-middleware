@@ -19,7 +19,7 @@ Manualmente: https://www.edivaldobrito.com.br/firefox-no-linux-manualmente/
 **MAC**: https://support.mozilla.org/pt-BR/kb/como-baixar-e-instalar-firefox-mac
 
 ## 1.2 Java
-**Observação**: O Java é necessário para executar o servidor WebSocket, que é
+**Observação**: O Java 8 é necessário para executar o servidor WebSocket, que é
 um dos possíveis mecanismos de transferência utilizado pelo AIT Middleware.
 Se não tem a intenção de utilizar o servidor WebSocket, então esse passo é
 opcional.
@@ -147,7 +147,7 @@ temporariamente e um menu deve ser adicionado a barra de ferramentas.
 O ícone do menu é ![popup icon](img/toolbar-icon.png)
 
 > **Nota**: Como a extensão foi adicionada no modo de debugging, ela
-> será deinstalada toda vez que o navegador for fechado. Logo, esse passo para
+> será desinstalada toda vez que o navegador for fechado. Logo, esse passo para
 > adcionar a extensão ao navegador deve ser realizado todas as vezes que o
 > navegador for aberto.
 
