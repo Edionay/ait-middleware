@@ -5,7 +5,7 @@ Aqui será apresentado um exemplo básico de uso do AIT Middleware.
 Para os testes será necessário:
 
 1. Dois navegadores Mozilla Firefox em duas máquinas distintas. Tanto faz
-   físicas ou virtuais, o importante é estarem em máquinas distintas.
+   físicas ou virtuais, o importante é os navegadores estarem em máquinas distintas.
 2. Ter pelo menos dois dipositivos cadastrados.
 3. Ter pelo menos uma preferência que envolve dois dispositivos.
 4. Associar os navegadores aos dispositivos.
@@ -16,7 +16,7 @@ Para os testes será necessário:
 Para os testes iremos cadastrar dois dispositivos, um desktop e um laptop.
 
 1. Abra o arquivo *browser-extension/preferences-page/devices.html* em um
-   em um navegador.
+   navegador.
 2. Clique em **Add Device**.
 3. Em **Device Type** escolha **Desktop PC**.
 4. Em **Width** digite 1920.
@@ -30,19 +30,14 @@ Para os testes iremos cadastrar dois dispositivos, um desktop e um laptop.
 
 Cadastre mais um dispositivo, mas agora com os seguintes parâmetros: **Device
 Type**=Laptop, **Width**=1366, **Height**=768, marque ambas as *checkbox*,
-**Location**=Living Room.
+**Location**=Mobile.
 
 Na tabela no topo da página deve ser possível visualizar os dispositivos,
 cada um com um ID atribuído automaticamente. Vamos supor que para o Desktop o ID
 atribuído foi **101** e para o Laptop o ID atribuído foi **202**.
 
-> **Limitação**: Podem ser cadastrados mais de um dispositivo para uma mesma
-> localização, mas até o momento, um mesmo dispositivo não pode ser cadastrado em mais
-> de uma localização. Também ainda não há um marcador que marque o
-> dispositivo como móvel. Ou seja, a atual implementação do AIT Middleware considera o
-> usuário móvel e provê a aplicação Web a abilidade de migrar entre dispositivos,
-> assim acompanhando o usuário. Entretanto, os dispositivos em si são considerados
-> estáticos ou pelo menos não sairão dos limites da localização na qual foram cadastrados.
+> **Observação**: Podem ser cadastrados mais de um dispositivo para uma mesma
+> localização.
 
 ## 3. Adicionando uma preferência
 Para os testes iremos cadastrar uma preferência.
@@ -60,7 +55,7 @@ valor em **Application ID** deve ser *github.com* e os valores em **Preference**
 devem estar relacionados a *Home Office*.
 
 1. Clique em **Edit** na preferência recém cadastrada.
-2. Em **Location** escolha **Living Room**.
+2. Em **Location** escolha **Mobile**.
 3. Em **Device Type** escolha **Laptop**.
 4. Clique em **Save Changes**
 
@@ -70,7 +65,7 @@ A preferência agora significa:
 ```
 "Quando estiver utilizando a aplicação github.com em 'Home Office',
 prefiro utilizar um Desktop PC."
-"Quando estiver utilizando a aplicação github.com em 'Living Room',
+"Quando estiver em movimento e utilizando a aplicação github.com,
 prefiro utilizar um Laptop."
 ```
 

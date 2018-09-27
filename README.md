@@ -7,7 +7,7 @@ O AIT Middleware trata em conjunto quatro funcionalidades do *handoff*:
 
 1. Coleta e restauração do estado da sessão.
 2. Os eventos que dão início ao *handoff*.
-3. Consulta a informações para a escolha do alvo do *handoff*.
+3. Consulta informações previamente cadastradas para a escolha do alvo do *handoff*.
 4. Os mecanismos de transferência.
 
 AIT Middleware é um dos produtos finais da dissertação de mestrado desenvolvida
