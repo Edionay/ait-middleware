@@ -45,7 +45,7 @@ Para os testes iremos cadastrar uma preferência.
 1. Abra o arquivo *browser-extension/preferences-page/preferences.html* em um
    navegador.
 2. Clique em **Add Preference**.
-3. Em **Application ID** digite `github.com`.
+3. Em **Application ID** digite `github.com`
 4. Em **Location** escolha **Home Office**.
 5. Em **Device Type** escolha **Desktop PC**.
 6. Clique em **Save Changes**.
@@ -87,14 +87,15 @@ e após cadastrar um dispositivo:
 Faça o mesmo para outros dispositivos em outros navegadores.
 
 ## 5. (Opcional) Iniciando o servidor WebSocket
-Certifique-se de que o Java 8 está instalado nas máquinas de teste.
+Para utilizar o *websocket*, as máquinas devem estar na mesma rede local e o
+Java 8 deve estar instalado.
 
 ### 5.1 Adaptando o código fonte
-Na atual implementação do AIT Middleware é possível utilizar mais de um
-mecanismo de transferência, mas não é possível utilizar mais de um ao mesmo tempo. Também não é possível fazer
-essa escolha em tempo de execução.
+A atual implementação do AIT Middleware suporta mais de um mecanismo de
+transferência, mas não é possível utilizar mais de um ao mesmo tempo.
+Também não é possível escolher o mecanismo de transferência em tempo de execução.
 
-Assim, atualmente, a escolha do mecanismo de transferência e feita adaptando o
+Assim, atualmente, a escolha do mecanismo de transferência é feita adaptando o
 código do middleware e fazendo um *reload* da extensão no navegador.
 
 Para mudar o mecanismo de transferência de um serviço em nuvem para *websocket*,
@@ -117,4 +118,45 @@ siga os passos:
 Observe as linhas de log que são escritas na tela.
 Esse processo será necessário em todas as máquinas que fazem parte do teste.
 
+### 5.3 Cadastrando os IPs dos dispositivos
+Esse passo é necessário apenas se *websocket* for escolhido como mecanismo de
+transferência.
+
+Suponha que para o dispositivo de ID 101, Desktop PC, o IP seja 10.16.0.101.
+Suponha que para o dispositivo de ID 202, Laptop, o IP seja 10.16.0.202.
+
+Abra um terminal (prompt) de comando e utilize o seguinte comando:
+
+```
+curl -X PUT -d '[
+  {"id": 101, "ip": "10.16.0.101"},
+  {"id": 202, "ip": "10.16.0.202"}
+]' 'https://<DATABASE_NAME>.firebaseio.com/aitmiddleware/browser-extension/ips.json'
+```
+
+Onde **<DATABASE_NAME>** é o mesmo parâmetro utilizado na sessão 4 do [tutorial
+de instalação](../installation/INSTALLING.md).
+
 ## 6. Disparando um *handoff*
+Nesse teste realizaremos o *handoff* da aplicação *github.com*. O teste não
+é restrito pelo mecanismo de transferência escolhido, mas tenha certeza de que
+o mecanismo de transferência está configurado corretamente.
+
+1. Vá ao navegador associado ao ID 101.
+2. Digite a URL *github.com*, precione enter e espere a página carregar.
+3. (Opcional) Caso possua uma conta no GitHub, faça o login.
+4. Clique no menu do AIT Middleware na barra de ferramentas do navegador.
+5. Em **Select your current location!**, escolha **Mobile** e então clique em
+   **Handoff**.
+
+Se tudo ocorreu bem, a página do GitHub deve desaparecer do navegador anterior
+e aparecer no navegador associado ao ID 202.
+
+## 7. Próximos passos
+
+Cadastre novos disitivos. Para testar os novos dispositivos cadastrados basta
+mudar os ID associados aos navegadores ou criar novas máquinas com os navegadores
+instalados.
+
+Teste com outras aplicações Web, por exemplo, *facebook.com*. Lembre-se de
+cadastrar preferências para essas aplicações.
