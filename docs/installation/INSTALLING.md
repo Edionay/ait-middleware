@@ -91,7 +91,7 @@ Abaixo está um exemplo de snippet de código de inicialização:
 Informações extras podem ser encontradas no [link](https://firebase.google.com/docs/web/setup?authuser=0).
 
 ### 3.2 Inserindo as credenciais
-Para o AIT Middleware a informação importante do snippet é variável *config*.
+Para o AIT Middleware a informação importante do snippet é a variável *config*.
 Logo, selecione e copie (CTRL+C) as linhas do snippet que contém os dados da variável
 *config*.
 

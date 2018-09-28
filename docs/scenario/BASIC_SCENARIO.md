@@ -154,8 +154,8 @@ e aparecer no navegador associado ao ID 202.
 
 ## 7. Próximos passos
 
-Cadastre novos disitivos. Para testar os novos dispositivos cadastrados basta
-mudar os ID associados aos navegadores ou criar novas máquinas com os navegadores
+Cadastre novos dispositivos. Para testar os novos dispositivos cadastrados basta
+mudar os IDs associados aos navegadores ou criar novas máquinas com navegadores
 instalados.
 
 Teste com outras aplicações Web, por exemplo, *facebook.com*. Lembre-se de
