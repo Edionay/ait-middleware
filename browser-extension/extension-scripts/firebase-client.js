@@ -1,12 +1,12 @@
 // Setting up Firebase client.
 var config = {
-    apiKey: "<API_KEY>",
-    authDomain: "<PROJECT_ID>.firebaseapp.com",
-    databaseURL: "https://<DATABASE_NAME>.firebaseio.com",
-    projectId: "<PROJECT_ID>",
-    storageBucket: "<BUCKET>.appspot.com",
-    messagingSenderId: "<SENDER_ID>",
-};
+    apiKey: "AIzaSyCYrrdz0TNv8uXGkzcF20WjSP5S9c0jqjU",
+    authDomain: "teste-ait-middleware.firebaseapp.com",
+    databaseURL: "https://teste-ait-middleware.firebaseio.com",
+    projectId: "teste-ait-middleware",
+    storageBucket: "teste-ait-middleware.appspot.com",
+    messagingSenderId: "17327098132"
+  };
 firebase.initializeApp(config);
 
 var baseURL = "aitmiddleware/browser-extension";
